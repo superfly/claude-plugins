@@ -21,6 +21,10 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Extract version
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#sprite-handoff-v}" >> $GITHUB_OUTPUT
+
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
@@ -28,7 +32,7 @@ jobs:
           cache-dependency-path: sprite-handoff/go.sum
 
       - name: Build binaries for all platforms
-        run: make build-all
+        run: make build-all VERSION=${{ steps.version.outputs.version }}
 
       - name: Commit binaries to main
         run: |
@@ -39,10 +43,6 @@ jobs:
           git add -f bin/
           git commit -m "Build sprite-handoff binaries for ${GITHUB_REF_NAME}" || echo "No changes to commit"
           git push origin main
-
-      - name: Extract version
-        id: version
-        run: echo "version=${GITHUB_REF_NAME#sprite-handoff-}" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

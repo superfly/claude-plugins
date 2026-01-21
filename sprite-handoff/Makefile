@@ -15,8 +15,11 @@ BINARY_DIR=bin
 BINARY_PATH=$(BINARY_DIR)/$(BINARY_NAME)
 CMD_PATH=./cmd/sprite-handoff
 
+# Version (can be overridden: make build VERSION=1.0.0)
+VERSION ?= dev
+
 # Build flags
-LDFLAGS=-ldflags "-s -w"
+LDFLAGS=-ldflags "-s -w -X main.version=$(VERSION)"
 
 # Default target
 all: build
