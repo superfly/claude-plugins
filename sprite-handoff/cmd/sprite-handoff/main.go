@@ -15,6 +15,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/sprites-dev/sprite-handoff/internal/api"
 	"github.com/sprites-dev/sprite-handoff/internal/config"
+	"github.com/sprites-dev/sprite-handoff/internal/mcpserver"
 	"github.com/sprites-dev/sprite-handoff/internal/session"
 	"github.com/sprites-dev/sprite-handoff/internal/sync"
 	"github.com/sprites-dev/sprite-handoff/internal/worktree"
@@ -56,6 +57,34 @@ func init() {
 	rootCmd.AddCommand(writeCmd)
 	rootCmd.AddCommand(listCmd)
 	rootCmd.AddCommand(deleteCmd)
+	rootCmd.AddCommand(mcpServeCmd)
+}
+
+// mcpServeCmd runs the MCP server over stdio
+var mcpServeCmd = &cobra.Command{
+	Use:   "mcp-serve",
+	Short: "Run as MCP server over stdio",
+	Long: `Start sprite-handoff as an MCP (Model Context Protocol) server.
+
+This command runs the sprite-handoff tools as MCP tools over stdio,
+allowing Claude and other MCP clients to call sprite operations directly.
+
+Available tools:
+  - sprite_run: Sync files and run Claude on a sprite
+  - sprite_pull: Pull changed files from a session
+  - sprite_sessions_list: List handoff sessions
+  - sprite_sessions_info: Get session details
+  - sprite_sessions_clean: Remove old sessions
+  - sprite_sync: Sync files without running Claude
+  - sprite_read: Read a file from a sprite
+  - sprite_write: Write content to a sprite file
+  - sprite_list: List directory contents
+  - sprite_delete: Delete a file or directory`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		// Set version in mcpserver package
+		mcpserver.Version = version
+		return mcpserver.Run(context.Background())
+	},
 }
 
 // tokenCmd prints the current sprite token

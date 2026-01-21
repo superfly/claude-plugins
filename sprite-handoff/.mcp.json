@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sprite-handoff": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/sprite-handoff",
+      "args": ["mcp-serve"]
+    }
+  }
+}

@@ -34,13 +34,18 @@ jobs:
       - name: Build binaries for all platforms
         run: make build-all VERSION=${{ steps.version.outputs.version }}
 
-      - name: Commit binaries to main
+      - name: Update plugin.json version
+        run: |
+          jq '.version = "${{ steps.version.outputs.version }}"' .claude-plugin/plugin.json > tmp.json
+          mv tmp.json .claude-plugin/plugin.json
+
+      - name: Commit binaries and plugin.json to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin main
           git checkout main
-          git add -f bin/
+          git add -f bin/ .claude-plugin/plugin.json
           git commit -m "Build sprite-handoff binaries for ${GITHUB_REF_NAME}" || echo "No changes to commit"
           git push origin main
 

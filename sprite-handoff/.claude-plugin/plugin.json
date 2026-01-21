@@ -1,6 +1,6 @@
 {
   "name": "sprite-handoff",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Offload Claude Code sessions to Sprites.dev cloud sandboxes - run code remotely, sync files, manage background tasks",
   "author": {
     "name": "Kyle",
