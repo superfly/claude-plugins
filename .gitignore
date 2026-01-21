@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Local Claude config
+.claude/
+
+# Sprite working directories and config
+.sprite-worktrees/
+.sprite
+
+# Compiled binaries
+bin/
+
+# Demo media files
+*.mp4
+*.gif
+*.cast
+*.tape

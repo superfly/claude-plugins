@@ -1,0 +1,21 @@
+{
+  "name": "superfly-plugins",
+  "owner": {
+    "name": "Fly.io",
+    "email": "support@fly.io"
+  },
+  "metadata": {
+    "description": "Assorted Claude Code plugins for Fly.io and Sprites",
+    "version": "0.1.0",
+    "pluginRoot": "./"
+  },
+  "plugins": [
+    {
+      "name": "sprite-handoff",
+      "source": "./sprite-handoff",
+      "description": "Offload Claude Code sessions to Sprites.dev sandboxes - run code remotely, sync files, manage background tasks",
+      "category": "cloud",
+      "tags": ["sprites", "cloud", "sandbox", "remote-execution", "handoff"]
+    }
+  ]
+}
