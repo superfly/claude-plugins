@@ -1,10 +1,10 @@
-<h1 align="center">Superfly Plugins</h1>
-
 <p align="center">
   <img src="hero.png" alt="Superfly Plugins" />
 </p>
 
-A Claude Code plugin marketplace from [Fly.io](https://fly.io).
+<h1 align="center">Superfly Plugins</h1>
+
+<p align="center">A Claude Code plugin marketplace from <a href="https://fly.io">Fly.io</a>.</p>
 
 ## Installation
 
