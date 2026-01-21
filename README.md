@@ -12,6 +12,16 @@
 /plugin marketplace add superfly/claude-plugins
 ```
 
+## Updating Plugins
+
+Plugins auto-update when Claude Code starts. To manually refresh and update:
+
+```
+/plugin marketplace update superfly-plugins
+```
+
+This fetches the latest marketplace data and updates installed plugins to their newest versions.
+
 ## Available Plugins
 
 | Plugin | Description | Install |

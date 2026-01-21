@@ -27,15 +27,17 @@ A Claude Code plugin for offloading sessions to [Sprites.dev](https://sprites.de
 
 ## Installation
 
-```bash
-# Clone the plugin
-git clone https://github.com/sprites-dev/sprite-handoff.git
+Install via the Superfly Plugins marketplace:
 
-# Build the Go binary
-cd sprite-handoff
-make build
+```
+/plugin marketplace add superfly/claude-plugins
+/plugin install sprite-handoff@superfly-plugins
+```
 
-# The binary will be at bin/sprite-handoff
+To manually check for updates:
+
+```
+/plugin marketplace update superfly-plugins
 ```
 
 ## Quick Start
