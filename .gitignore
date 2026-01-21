@@ -8,8 +8,8 @@
 .sprite-worktrees/
 .sprite
 
-# Compiled binaries
-bin/
+# Compiled binaries (only at root, plugins have their own)
+/bin/
 
 # Demo media files
 *.mp4

@@ -12,7 +12,6 @@ Thumbs.db
 *.swo
 
 # Go
-bin/
 *.exe
 coverage.out
 coverage.html
